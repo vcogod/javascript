@@ -2,10 +2,10 @@
 
 ## 程序语言
 
-*
-*
-*
-*
+*yi
+*er
+*san
+*si
 
 ```javascript
 var a=12;
