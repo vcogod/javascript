@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图2</title>
+  <style type="text/css">
+      .banner_img{
+      	width: 880px;
+      	height: 130px;
+      	border: 3px solid red;
+      	margin: 30px auto;
+      	position: relative;
+      	overflow: hidden;
+
+      }
+      .box{
+      width:1330px;
+      height: 100%
+      position:absolute;
+      top: 0;
+      left: 0;
+
+     }
+     .box a{
+     	width: 220px;
+     	height:120px;
+     	display: block;
+     	float: left;
+     	text-align: center;
+     	font-size:0;
+
+     }
+.btnL{
+           width:30px;
+            height:70px;
+            position: absolute;
+            top: 50%;
+            right:0;
+            margin-top: -35px;
+            z-index: 20;
+            overflow: hidden;
+            opacity:0.5;
+
+        }
+.btnR{
+      width:30px;
+      height:70px;
+            position: absolute;
+            top: 50%;
+            left :0;
+            margin-top: -35px;
+            z-index: 20;
+             overflow: hidden; 
+             opacity: 0.5;
+             
+        }
+.btnL img{
+	display: block;
+	margin-left: -40px;}
+	</style>
+</head>
+<body>
+<div class="banner_img">
+       <div class="box">
+
+			<a href="#" class="banner1">
+				<img src="./image/table2.jpg" alt=""/>
+			</a>
+			<a href="#" class="banner1">
+				<img src="./image/table3.jpg" alt=""/>
+			</a>
+			<a href="#" class="banner1">
+				<img src="./image/table4.jpg" alt=""/>
+			</a>
+			<a href="#" class="banner1">
+				<img src="./image/table5.jpg" alt=""/>
+			</a>
+			<a href="#" class="banner1">
+				<img src="./image/table6.jpg" alt=""/>
+			</a>
+			<a href="#" class="banner1">
+				<img src="./image/table7.jpg" alt=""/>
+			</a>
+      </div>  
+			<div class="btnL">
+				<img src="./image/lbnextpre.png">
+			</div>
+			<div
+			 class="btnR"><img src="./image/lbnextpre.png">
+			 </div>
+		
+</div>	
+</body>
+<script src="function.js"></script>
+<script src="animate.js"></script>
+
+<script>
+  window.onload=function(){
+
+
+  var win=$(".banner_img")[0];//用来显示  看的见的
+  var box=$(".box",win)[0];
+  var as=box.getElementsByTagName("a");
+  var len=as.length;
+  var aw=parseInt(getstyle(as[0],"width"));
+  var btnL=$(".btnL",win)[0];
+  
+  var btnR=$(".btnR",win)[0];
+  
+  var flag=true;
+    box.style .width=aw*len+"px";//box用来存放 图片
+     
+
+
+    var t;
+
+
+    t=setInterval(move,1000);
+    win.onmouseover=function(){
+    clearInterval(t);
+   }
+   win.onmouseout=function(){
+    t=setInterval(move,1000);
+   }
+   btnL.onclick=function(){
+    move();
+   }
+   btnR.onclick=function(){
+    mover();
+   }
+     function move(){
+    if(!flag){
+      return;
+    }
+    flag=false;
+    //box 在window中  通过控制定位的left值控制 大小 位置
+    animate(box,{left:-aw},function(){
+      var first=getfirst(box);//获取盒子box中的第一个元素
+      box.style.left="0px";
+      box.appendChild(first);//将第一个元素  放到box 的最后
+      flag=true;
+    })
+   }
+
+    function mover(){
+    if(!flag){
+      return;
+    }
+    flag=false;
+      var first1=getfirst(box);
+      var last1=getlast(box);
+      box.style.left=-aw+"px";
+      box.insertBefore(last1,first1);
+    animate(box,{left:0},function(){
+      
+      flag=true;
+    })
+    
+   }
+
+}
+</script>
+</html>
