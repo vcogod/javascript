@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+ul{
+	list-style: none;
+}
+.box{
+		width:1000px;
+		height:40px;
+		background: #e4e4e4;
+		margin:100px auto;
+		position:relative; 
+
+}
+.tab{
+		width:1000px;
+		height:40px;
+
+}
+.tab li{
+		float: left;
+		width:200px;
+		height:40px;
+		text-align: center;
+		line-height: 40px;
+}
+.tab a{
+		display:block;
+}
+.tab a:hover{
+		background:#f3f3f3;
+		color:red;
+}
+.downMenu{
+		width:1000px;
+		height:40px;
+		background: #fff;
+		box-shadow: 0px 3px 10px #ccc;
+		position: absolute;
+		top:40px;
+		left:0;
+		display:none;
+		z-index: 99989999;
+}
+	</style>
+</head>
+<body>
+	<div class="box">
+	<ul class="tab">
+		<li class="xuanxiang"><a href="javascript:;">one</a>
+		<div class="downMenu">
+			111
+		</div>
+		</li>
+		<li class="xuanxiang"><a href="javascript:;">two</a>
+		<div class="downMenu">
+			222
+		</div>
+		</li>
+		<li class="xuanxiang"><a href="javascript:;">three</a>
+		<div class="downMenu">
+			333
+		</div>
+		</li>
+		<li class="xuanxiang"><a href="javascript:;">four</a>
+		<div class="downMenu">
+			444
+		</div>
+		</li>
+		<li class="xuanxiang"><a href="javascript:;">five</a>
+		<div class="downMenu">
+			555
+		</div>
+		</li>
+		
+	</ul>
+	</div>
+</body>
+<script>
+	window.onload=function() {
+
+	var lis=document.getElementsByClassName("xuanxiang");
+	var downMenu=document.getElementsByClassName("downMenu");
+	for (var i = 0; i < lis.length; i++) {
+		lis[i].index=i;
+		lis[i].onmouseover=function(){
+			for (var j = 0; j < lis.length; j++) {
+				downMenu[j].style.display="none";
+			};
+			downMenu[this.index].style.display="block";
+		}
+		lis[i].onmouseout=function(){
+			for(var j=0;j<lis.length;j++){
+				downMenu[j].style.display="none";
+			}
+		}
+	}
+}
+</script>
+</html>
