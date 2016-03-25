@@ -79,33 +79,85 @@ obj.console();
 dom对象 dom集合
 
  ### 选取元素
- * document.documentElementById()
- * document.documentElementsByClassName()[]
- * document.documentElementsByTagName()[]
 
+* var el=document.createElement()
+* var el=document.getElementById()
+* var el=document.querySelector()  //ie8
+
+* var el=document.getElementsclassName()
+* var el=document.getElementsTagName()
+* var el=document.getElementsByName()
+* var el=document.querySelectorAll()   //ie8
+* var el=document.genElementsById()
 
 ### 筛选元素
- * el.parentNode
- * el.childNode
- * el.firstNode
- * el.lastNode
- * el.nextNode
+ >父元素
+   *el.parentNode
+  *el.parentElement
+ >子元素
+  *el.firstchilds
+  *el.firstElementChild
+ >兄弟
+  *el.nextSibling
+  *el.nextElementSibling
 
-### 操作样式
- * el.style.color="red"
- * el.style[color]="red"
+  *el.previousSibling
+  *el.previousElementSibling
 
+  *el.lastchilds
+  *el.lastElementChild
+
+  *el.ChildNodes
+  *el.Child
 ### 对位置信息
  * document.documentElement.clientWidth;
  * document.documentElement.clientHeight;
  * obj.offsetWidth
 
 
-### 属性操作
+### 属性操作（Element）
 
-### 节点操作
+ * el.setAttribute()
+ * el.getAttribute()
+ * el.removeAttribute()
+ * el.hasAttribute()
+ * el.ClassName
+ * el.id
+ * el.ClassList
 
-### 获取元素信息
 
 
+### 节点操作  (Node)
+
+ * el.appendChild()
+ * el.removeChild()
+ * el.insertBefor()
+ * el.cloneNode()
+ * el.replaceChild()  //替换
+
+
+### 获取元素信息 （HTMLElement）
+
+* el.offseWidth
+* el.offseHeight
+* el.offsetLeft
+* el.offsetTop
+* el.offsetParent
+* el.getBoundingClieRect()  //计算元素距窗口的
+
+* el.innerHTML
+
+
+### 操作样式
+
+ * el.style(读取/设置行内样式的值)
+ 
+ el.style.color='red'
 ### 其他
+
+var obj={
+	a:1,
+	c:2,
+	set c (x) {console.log(111)},
+	get c () {return 5;}
+}
